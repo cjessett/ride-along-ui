@@ -1,0 +1,16 @@
+.App {
+  font-family: 'Roboto', sans-serif;
+}
+
+.center {
+  text-align: center;
+}
+
+.colorme {
+  background-color: orange;
+}
+
+.tab-content {
+  margin: 0 auto;
+  max-width: 50em;
+}
