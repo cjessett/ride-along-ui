@@ -32,7 +32,7 @@ class FindRides extends Component {
     this.setState({listItemComponents: items})
   }
   getTrips() {
-    helpers.getTripInfo(this.state.id).then((data) => {
+    helpers.getAvailableRides(this.state.id).then((data) => {
       this.buildListComponents(data);
     });
   }

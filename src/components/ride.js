@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
-import RideData from './card_deets'
+import RideData from './card_deets';
 
 class Ride extends Component {
   static propTypes = {
