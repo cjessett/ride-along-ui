@@ -14,26 +14,36 @@ const styles = {
 };
 
 class FindRides extends Component {
-  state = {
-      listItemComponents: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: 3,
+      listItemComponents: [],
+    }
   }
   buildListComponents(array) {
-    debugger
     var items = array.map(function(tripObj) {
-      return <ListItem><Ride {...tripObj.attributes} key={tripObj.id} /></ListItem>
+      return (
+        <ListItem key={tripObj.id}>
+          <Ride {...tripObj.attributes} />
+        </ListItem>
+      )
     });
     this.setState({listItemComponents: items})
   }
-  componentDidMount() {
-    helpers.getTripInfo().then((data) => {
+  getTrips() {
+    helpers.getTripInfo(this.state.id).then((data) => {
       this.buildListComponents(data);
     });
+  }
+  componentDidMount = () => {
+    this.getTrips();
   }
   render() {
     return (
       <div>
         <h2 style={styles.headline}>Find A Ride</h2>
-          <FindRidesList listItemComponents={this.state.listItemComponents} />
+        <FindRidesList listItemComponents={this.state.listItemComponents} />
       </div>
     )
   }

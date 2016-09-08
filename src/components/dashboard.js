@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import '../App.css';
 import FindRides from './find_rides';
 import MyRides from './my_rides';
 
-class Dashboard extends React.Component {
-
+class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -8,7 +8,8 @@ class Ride extends Component {
     departure: React.PropTypes.string.isRequired,
     arrival: React.PropTypes.string.isRequired,
     rating: React.PropTypes.string,
-    count: React.PropTypes.string
+    riders: React.PropTypes.number,
+    email: React.PropTypes.string,
   }
   render() {
     return (
@@ -22,7 +23,7 @@ class Ride extends Component {
           children={<RideData {...this.props} />}
         />
         <CardText expandable={true}>
-          <p>Riders: {this.props.count}</p>
+          <p>Riders: {this.props.riders}</p>
           <p>Driver's Email: {this.props.email}</p>
         </CardText>
       </Card>
