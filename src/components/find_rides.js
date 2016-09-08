@@ -11,6 +11,8 @@ const styles = {
   },
 };
 
+const cjProps = { name: "CJ", rating: "4.9", departure: "7:30a", arrival: "8a" }
+
 const items = [<ListItem primaryText="Inbox" key={1} />,<ListItem primaryText="Inbox" key={2}/>]
 
 class FindRides extends Component {
@@ -18,7 +20,7 @@ class FindRides extends Component {
     return (
       <div>
         <h2 style={styles.headline}>Find Rides</h2>
-        {Ride()}
+          <Ride {...cjProps} />
           <List children={items}>
           </List>
       </div>
