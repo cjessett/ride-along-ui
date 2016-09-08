@@ -3,6 +3,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import '../App.css';
 import FindRides from './find_rides';
 import MyRides from './my_rides';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Dashboard extends React.Component {
 
@@ -21,14 +22,16 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <Tabs
-        value={this.state.value}
-        onChange={this.handleChange}
-        contentContainerClassName="tab-content"
-      >
-        <Tab label="Find a Ride" value="a" ><FindRides /></Tab>
-        <Tab label="My Rides" value="b" ><MyRides /></Tab>
-      </Tabs>
+      <MuiThemeProvider>
+        <Tabs
+          value={this.state.value}
+          onChange={this.handleChange}
+          contentContainerClassName="tab-content"
+        >
+          <Tab label="Find a Ride" value="a" ><FindRides /></Tab>
+          <Tab label="My Rides" value="b" ><MyRides /></Tab>
+        </Tabs>
+      </MuiThemeProvider>  
     );
   }
 }
