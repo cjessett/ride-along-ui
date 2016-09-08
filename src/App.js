@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Navbar from './components/navbar';
-import Dashboard from './components/tabs';
-import GetStuff from './components/getButton';
+import Dashboard from './components/dashboard';
 
 class App extends Component {
 
@@ -11,7 +10,6 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div>
-        <GetStuff />
         <Navbar />
         <Dashboard />
       </div>

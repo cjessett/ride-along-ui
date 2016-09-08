@@ -4,16 +4,17 @@ import RideData from './card_deets'
 
 class Ride extends Component {
   static propTypes = {
-    name: React.PropTypes.string.isRequired,
+    driver: React.PropTypes.string.isRequired,
     departure: React.PropTypes.string.isRequired,
     arrival: React.PropTypes.string.isRequired,
-    rating: React.PropTypes.string
+    rating: React.PropTypes.string,
+    count: React.PropTypes.string
   }
   render() {
     return (
       <Card>
         <CardHeader
-          title={this.props.name}
+          title={this.props.driver}
           subtitle={this.props.rating + "/5"}
           avatar=""
           actAsExpander={true}
@@ -21,7 +22,8 @@ class Ride extends Component {
           children={<RideData {...this.props} />}
         />
         <CardText expandable={true}>
-          Trip info
+          <p>Riders: {this.props.count}</p>
+          <p>Driver's Email: {this.props.email}</p>
         </CardText>
       </Card>
     );
