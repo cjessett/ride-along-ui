@@ -3,3 +3,69 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+a {
+  text-decoration: none;
+}
+
+.jumbotron {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-bottom: 30px;
+}
+
+.show-grid {
+  color: inherit;
+  background-image: url('ride-along-bg.jpg');
+  background-size: cover;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.jumbotron h1,
+.jumbotron .h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 7em;
+  color: #fff;
+  text-shadow: 0px 2px 8px #000;
+}
+.jumbotron p {
+  font-family: 'Lora', serif;
+  margin-bottom: 15px;
+  font-size: 25px;
+  font-weight: 250;
+  color: #fff;
+  text-shadow: 0px 2px 8px #000;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
