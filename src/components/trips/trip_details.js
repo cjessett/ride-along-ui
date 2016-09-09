@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tabs, Tab } from 'material-ui/Tabs'
+import { Tabs, Tab, List, ListItem} from 'material-ui';
 
 const styles = {
   headline: {
@@ -15,20 +15,31 @@ class TripDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'a',
+      value: 'a'
     };
   }
   static PropTypes = {
     riders: React.PropTypes.array,
     requests: React.PropTypes.array
   }
-
+  buildRiderComponents(array) {
+    var riders = array.map(function(rider) {
+      return (
+        <ListItem key={rider.id}>
+          {rider.name}
+        </ListItem>
+      )
+    });
+    this.setState({riderComponents: riders})
+  }
   handleChange = (value) => {
     this.setState({
       value: value,
     });
   };
-
+  componentDidMount = () => {
+    this.buildRiderComponents(this.props.riders);
+  }
   render() {
     return (
       <Tabs
@@ -38,6 +49,7 @@ class TripDetails extends Component {
         <Tab label="Riders" value="a" >
           <div>
             <h2 style={styles.headline}>Riders</h2>
+            <List children={this.state.riderComponents}></List>
           </div>
         </Tab>
         <Tab label="Requests" value="b">

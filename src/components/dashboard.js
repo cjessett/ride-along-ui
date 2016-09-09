@@ -28,9 +28,9 @@ class Dashboard extends Component {
           onChange={this.handleChange}
           contentContainerClassName="tab-content"
         >
-          <Tab label="Find a Ride" value="a" ><FindRides user=""/></Tab>
+          <Tab label="Find a Ride" value="a" ><FindRides /></Tab>
           <Tab label="Rides I provide" value="b" ><TripsView /></Tab>
-          <Tab label="Rides I'm on" value="c" ><RidesView name="Rides I'm on"/></Tab>
+          <Tab label="Rides I'm on" value="c" ><RidesView /></Tab>
         </Tabs>
       </MuiThemeProvider>
     );
