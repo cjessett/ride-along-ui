@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs, Tab, List, ListItem} from 'material-ui';
+import TripRider from './trip_rider';
 
 const styles = {
   headline: {
@@ -26,9 +27,9 @@ class TripDetails extends Component {
     var riders = array.map(function(rider) {
       return (
         <ListItem key={rider.id}>
-          {rider.name}
+          <TripRider {...rider} />
         </ListItem>
-      )
+        )
     });
     this.setState({riderComponents: riders})
   }
