@@ -1,7 +1,8 @@
 import React from 'react';
 import { Jumbotron, Row, Col } from 'react-bootstrap';
 import {MuiThemeProvider} from 'material-ui'
-import '../index.css';
+import '../landing.css';
+
 const Landing = () => (
   <MuiThemeProvider>
     <Row className="show-grid">
@@ -12,7 +13,7 @@ const Landing = () => (
         </Jumbotron>
       </Col>
     </Row>
-  </MuiThemeProvider>  
+  </MuiThemeProvider>
 );
 
 export default Landing;

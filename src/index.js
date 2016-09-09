@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import './index.css';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, Route, browserHistory} from 'react-router';
 import Dashboard from './components/dashboard';
@@ -14,7 +15,7 @@ ReactDOM.render(<App/>,document.getElementById('root'));
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={Welcome} />
-    <Route path='/profile' component={Dashboard} />
+    <Route path="/profile" component={Dashboard} />
   </Router>,
   document.getElementById('content')
   )
