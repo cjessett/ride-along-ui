@@ -23,10 +23,11 @@ class FindRides extends Component {
     }
   }
   buildListComponents(array) {
+    var self = this;
     var items = array.map(function(tripObj) {
       return (
         <ListItem key={tripObj.id}>
-          <Ride {...tripObj.attributes} />
+          <Ride {...tripObj.attributes} trip={tripObj.id} user={self.state.id} />
         </ListItem>
       )
     });
