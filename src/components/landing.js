@@ -1,6 +1,7 @@
 import React from 'react';
 import { Jumbotron, Button, Row, Col } from 'react-bootstrap';
 import {MuiThemeProvider,RaisedButton} from 'material-ui'
+import '../index.css';
 const Landing = () => (
   <MuiThemeProvider>
     <Row className="show-grid">
