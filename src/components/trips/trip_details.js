@@ -38,6 +38,7 @@ class TripDetails extends Component {
         <Tab label="Riders" value="a" >
           <div>
             <h2 style={styles.headline}>Riders</h2>
+
           </div>
         </Tab>
         <Tab label="Requests" value="b">
