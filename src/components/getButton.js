@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import FlatButton from 'material-ui/FlatButton';
-import getRepos from '../utils/helpers';
+import helpers from '../utils/helpers';
 
-class GetStuff extends Component {
+class GetTrips extends Component {
 
   handleClick(event) {
     event.preventDefault();
 
-    var data = getRepos('cjessett');
-    data.then(function(data) {
+    var data = helpers.getTrips();
+    data.then(function(promise) {
+      var trips = helpers.parsePromise(promise)
       debugger;
     })
   };
@@ -22,4 +23,4 @@ class GetStuff extends Component {
   }
 };
 
-export default GetStuff;
+export default GetTrips;

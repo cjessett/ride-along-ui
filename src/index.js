@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, Route, browserHistory} from 'react-router';
-import Dashboard from './components/tabs';
+import Dashboard from './components/dashboard';
 import Welcome from './components/welcome';
 
 // Needed for onTouchTap

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import FindRidesList from './find_rides_list'
 import Ride from './ride'
-import {List, ListItem} from 'material-ui/List';
+import {ListItem} from 'material-ui/List';
+import helpers from '../utils/helpers';
 
 const styles = {
   headline: {
@@ -11,16 +13,37 @@ const styles = {
   },
 };
 
-const items = [<ListItem primaryText="Inbox" key={1} />,<ListItem primaryText="Inbox" key={2}/>]
-
 class FindRides extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: 3,
+      listItemComponents: [],
+    }
+  }
+  buildListComponents(array) {
+    var items = array.map(function(tripObj) {
+      return (
+        <ListItem key={tripObj.id}>
+          <Ride {...tripObj.attributes} />
+        </ListItem>
+      )
+    });
+    this.setState({listItemComponents: items})
+  }
+  getTrips() {
+    helpers.getAvailableRides(this.state.id).then((data) => {
+      this.buildListComponents(data);
+    });
+  }
+  componentDidMount = () => {
+    this.getTrips();
+  }
   render() {
     return (
       <div>
-        <h2 style={styles.headline}>Find Rides</h2>
-        {Ride()}
-          <List children={items}>
-          </List>
+        <h2 style={styles.headline}>Find A Ride</h2>
+        <FindRidesList listItemComponents={this.state.listItemComponents} />
       </div>
     )
   }
