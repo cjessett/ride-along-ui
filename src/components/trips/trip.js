@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
-import RideData from './card_deets';
-import RaisedButton from 'material-ui/RaisedButton';
+import TripCardPreview from './card_preview';
+import TripDetails from './trip_details'
 
-class Ride extends Component {
+class Trip extends Component {
   static propTypes = {
     driver: React.PropTypes.string.isRequired,
     departure: React.PropTypes.string.isRequired,
     arrival: React.PropTypes.string.isRequired,
     rating: React.PropTypes.string,
-    count: React.PropTypes.number,
-    email: React.PropTypes.string,
+    count: React.PropTypes.number
   }
   render() {
     return (
@@ -21,16 +20,14 @@ class Ride extends Component {
           avatar=""
           actAsExpander={true}
           showExpandableButton={true}
-          children={<RideData {...this.props} />}
+          children={<TripCardPreview {...this.props} />}
         />
         <CardText expandable={true}>
-          <p>Riders: {this.props.count}</p>
-          <p>Driver's Email: {this.props.email}</p>
-          <RaisedButton label="Request to Join" fullWidth={true} primary={true} />
+          <TripDetails />
         </CardText>
       </Card>
     );
   }
 }
 
-export default Ride;
+export default Trip;
