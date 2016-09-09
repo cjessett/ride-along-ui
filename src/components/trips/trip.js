@@ -9,7 +9,8 @@ class Trip extends Component {
     departure: React.PropTypes.string.isRequired,
     arrival: React.PropTypes.string.isRequired,
     rating: React.PropTypes.string,
-    count: React.PropTypes.number
+    count: React.PropTypes.number,
+    riders: React.PropTypes.array
   }
   render() {
     return (
@@ -23,7 +24,7 @@ class Trip extends Component {
           children={<TripCardPreview {...this.props} />}
         />
         <CardText expandable={true}>
-          <TripDetails />
+          <TripDetails {...this.props} />
         </CardText>
       </Card>
     );
