@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FindRidesList from './find_rides_list'
 import Ride from './ride'
 import {ListItem} from 'material-ui/List';
-import helpers from '../utils/helpers';
+import helpers from '../../utils/helpers';
 
 const styles = {
   headline: {
