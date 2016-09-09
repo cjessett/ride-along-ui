@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FindRidesList from './find_rides_list'
-import Ride from './ride'
+import TripList from './trip_list'
+import Trip from './trip'
 import {ListItem} from 'material-ui/List';
 import helpers from '../../utils/helpers';
 
@@ -14,40 +14,40 @@ const styles = {
   },
 };
 
-class FindRides extends Component {
+class TripsView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: 1,
-      listItemComponents: [],
+      listItemComponents: []
     }
   }
   buildListComponents(array) {
-    var items = array.map(function(tripObj) {
+    var tripCards = array.map(function(tripObj) {
       return (
         <ListItem key={tripObj.id}>
-          <Ride {...tripObj.attributes} />
+          <Trip {...tripObj.attributes} />
         </ListItem>
       )
     });
-    this.setState({listItemComponents: items})
+    this.setState({listItemComponents: tripCards})
   }
-  findRides() {
-    helpers.getAvailableRides(this.state.id).then((data) => {
+  getTrips() {
+    helpers.getMyTrips(this.state.id).then((data) => {
       this.buildListComponents(data);
     });
   }
   componentDidMount = () => {
-    this.findRides();
+    this.getTrips();
   }
   render() {
     return (
       <div>
-        <h2 style={styles.headline}>Find A Ride</h2>
-        <FindRidesList listItemComponents={this.state.listItemComponents} />
+        <h2 style={styles.headline}>Trips I Drive</h2>
+        <TripList listItemComponents={this.state.listItemComponents} />
       </div>
     )
   }
 }
 
-export default FindRides;
+export default TripsView;
