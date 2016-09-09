@@ -1,5 +1,12 @@
 var axios = require('axios');
 
-export default function(username) {
-  return axios('http://localhost:3001/users/1')
-};
+var helpers = {
+  getAvailableRides: function(id) {
+                return axios("http://localhost:3000/trips/available?user_id=" + id)
+                  .then(function(response) {
+                    return response.data.data
+                  })
+                }
+}
+
+module.exports = helpers
