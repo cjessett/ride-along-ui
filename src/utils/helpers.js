@@ -8,6 +8,11 @@ function fetchMyTrips(id) {
   return axios("http://localhost:3000/users/" + id + "/trips");
 }
 
+function createTripRequest(id, user) {
+  var url = 'http://localhost:3000/trips/' + id + '/requests'
+  return axios.post(url, {user_id: user})
+}
+
 var helpers = {
   getAvailableRides: function(id) {
                 return fetchAvailableRides(id)
@@ -20,7 +25,13 @@ var helpers = {
       .then(function(response) {
         return response.data.data
       })
-  }
+  },
+  joinTripRequest: function(id, user) {
+    return createTripRequest(id, user)
+      .then(function(response) {
+        return response.data.pending
+      })
+    }
 }
 
 module.exports = helpers;
