@@ -27,7 +27,10 @@ class FindRides extends Component {
     var items = array.map(function(tripObj) {
       return (
         <ListItem key={tripObj.id}>
-          <Ride {...tripObj.attributes} trip={tripObj.id} user={self.state.id} />
+          <Ride {...tripObj.attributes}
+            trip={tripObj.id}
+            user={self.state.id}
+          />
         </ListItem>
       )
     });

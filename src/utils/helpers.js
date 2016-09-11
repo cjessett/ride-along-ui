@@ -26,10 +26,10 @@ var helpers = {
         return response.data.data
       })
   },
-  joinTripRequest: function(id, user) {
-    return createTripRequest(id, user)
+  joinTripRequest: function(trip_id, user_id) {
+    return createTripRequest(trip_id, user_id)
       .then(function(response) {
-        return response.data.pending
+        return response.data.data;
       })
     }
 }
