@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TripList from './trip_list'
 import Trip from './trip'
 import { List, ListItem } from 'material-ui/List';
 import helpers from '../../utils/helpers';
@@ -13,27 +14,25 @@ const styles = {
   },
 };
 
-class TripList extends Component {
+class TripsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: 1,
-      trips: [],
+      id: 1,
+      trips: []
     }
   }
   componentDidMount = () => {
     this.updateState();
   }
   updateState = () => {
-    helpers.getAvailableRides(this.state.user_id).then((trips) => {
-      this.setState({trips: trips})
-    })
+    helpers.getMyTrips(this.state.id).then((trips) => {
+      this.setState({trips: trips});
+    });
   }
-  handleJoinRequest = (trip_id) => {
-    // POST to requests with user_id and trip_id -> (id)
-    helpers.joinTripRequest(trip_id, this.state.user_id).then((response) => {
-      this.updateState();
-    })
+  handleTripRequest = (requestId) => {
+    // PUT to /requests/requestId
+    this.updateState();
   }
   render() {
     const trips = this.state.trips.map((trip) => {
@@ -42,18 +41,18 @@ class TripList extends Component {
           <Trip
             {...trip.attributes}
             id={trip.id}
-            onRequest={this.handleJoinRequest}
+            onResponse={this.handleTripRequest}
           />
         </ListItem>
       );
     });
     return (
       <div>
-        <h2 style={styles.headline}>Find A Ride</h2>
+        <h2 style={styles.headline}>Trips I Drive</h2>
         <List children={trips} />
       </div>
     )
   }
 }
 
-export default TripList;
+export default TripsList;

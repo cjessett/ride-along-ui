@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import '../App.css';
-import FindRides from './available_rides/find_rides';
+import AvailableRidesList from './available_rides/available_rides_list'
 import TripsView from './trips/trips_view'
-import TripList from './available_rides/trip_list'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Dashboard extends Component {
@@ -28,9 +27,9 @@ class Dashboard extends Component {
           onChange={this.handleChange}
           contentContainerClassName="tab-content"
         >
-          <Tab label="Find a Ride" value="a" ><FindRides /></Tab>
-          <Tab label="Rides I provide" value="b" ><TripsView /></Tab>
-          <Tab label="Rides I'm on" value="c" ><TripList /></Tab>
+          <Tab label="Find a Ride" value="a" ><AvailableRidesList /></Tab>
+          <Tab label="Rides I provide" value="b" >My Trips</Tab>
+          <Tab label="Rides I'm on" value="c" >My Rides</Tab>
         </Tabs>
       </MuiThemeProvider>
     );

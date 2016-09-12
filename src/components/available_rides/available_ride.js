@@ -3,15 +3,10 @@ import { Card, CardHeader, CardText } from 'material-ui/Card';
 import RideData from './card_deets';
 import RaisedButton from 'material-ui/RaisedButton';
 
-class Trip extends Component {
+class AvailableRide extends Component {
   static propTypes = {
-    driver: React.PropTypes.string.isRequired,
     departure: React.PropTypes.string.isRequired,
-    arrival: React.PropTypes.string.isRequired,
-    rating: React.PropTypes.string,
-    count: React.PropTypes.number,
-    email: React.PropTypes.string,
-    pending: React.PropTypes.bool
+    arrival: React.PropTypes.string.isRequired
   }
   handleJoinRequest = () => {
     this.props.onRequest(this.props.id);
@@ -20,8 +15,8 @@ class Trip extends Component {
     return (
       <Card>
         <CardHeader
-          title={this.props.driver}
-          subtitle={this.props.rating + "/5"}
+          title={this.props.driver.name}
+          subtitle={this.props.driver.rating + "/5"}
           avatar=""
           actAsExpander={true}
           showExpandableButton={true}
@@ -29,7 +24,7 @@ class Trip extends Component {
         />
         <CardText expandable={true}>
           <p>Riders: {this.props.count}</p>
-          <p>Driver's Email: {this.props.email}</p>
+          <p>Driver's Email: {this.props.driver.email}</p>
 
           <RaisedButton
             onClick={this.handleJoinRequest}
@@ -44,4 +39,4 @@ class Trip extends Component {
   }
 }
 
-export default Trip;
+export default AvailableRide;
