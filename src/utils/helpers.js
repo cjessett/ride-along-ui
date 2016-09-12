@@ -5,7 +5,7 @@ function fetchAvailableRides(id) {
 }
 
 function fetchMyTrips(id) {
-  return axios("http://localhost:3000/users/" + id + "/trips");
+  return axios("http://localhost:3000/trips/drives.json");
 }
 
 function createTripRequest(id, user) {
@@ -15,15 +15,21 @@ function createTripRequest(id, user) {
 
 var helpers = {
   getAvailableRides: function(id) {
-                return fetchAvailableRides(id)
-                  .then(function(response) {
-                    return response.data
-                  })
-                },
+    return fetchAvailableRides(id)
+      .then(function(response) {
+        return response.data
+      })
+      .catch((error) => {
+        console.log('FuX Err')
+      })
+    },
   getMyTrips: function(id) {
     return fetchMyTrips(id)
       .then(function(response) {
-        return response.data.data;
+        return response.data;
+      })
+      .catch((error) => {
+        console.log('FuX Err')
       })
   },
   joinTripRequest: function(trip_id, user_id) {

@@ -17,24 +17,17 @@ class TripDetails extends Component {
       value: 'a'
     };
   }
-  buildRiderComponents(array) {
-    var riders = array.map(function(rider) {
-      return (
-        <ListItem key={rider.id}>
-          {rider.name}
-        </ListItem>
-      )
-    });
-    this.setState({riderComponents: riders})
+  componentDidMount = (requestId) => {
+    this.updateState(requestId);
+  }
+  updateState = (requestId) => {
+    this.onRequestResponse(requestId);
   }
   handleChange = (value) => {
     this.setState({
       value: value,
     });
   };
-  componentDidMount = () => {
-    this.buildRiderComponents(this.props.riders);
-  }
   render() {
     const riders = this.props.riders.map((rider) => {
       return(
@@ -65,6 +58,7 @@ class TripDetails extends Component {
         <Tab label="Requests" value="b">
           <div>
             <h2 style={styles.headline}>Requests</h2>
+            <List children={requests} />
           </div>
         </Tab>
       </Tabs>

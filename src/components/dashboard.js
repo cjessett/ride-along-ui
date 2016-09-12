@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import '../App.css';
 import AvailableRidesList from './available_rides/available_rides_list'
-import TripsView from './trips/trips_view'
+import TripsList from './trips/trips_list'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Dashboard extends Component {
@@ -28,7 +28,7 @@ class Dashboard extends Component {
           contentContainerClassName="tab-content"
         >
           <Tab label="Find a Ride" value="a" ><AvailableRidesList /></Tab>
-          <Tab label="Rides I provide" value="b" >My Trips</Tab>
+          <Tab label="Rides I provide" value="b" ><TripsList /></Tab>
           <Tab label="Rides I'm on" value="c" >My Rides</Tab>
         </Tabs>
       </MuiThemeProvider>

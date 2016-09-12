@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import TripList from './trip_list'
-import Trip from './trip'
+import Trip from './trip';
 import { List, ListItem } from 'material-ui/List';
 import helpers from '../../utils/helpers';
 
@@ -26,11 +25,12 @@ class TripsList extends Component {
     this.updateState();
   }
   updateState = () => {
-    helpers.getMyTrips(this.state.id).then((trips) => {
-      this.setState({trips: trips});
-    });
+    helpers.getMyTrips(this.state.id)
+      .then((trips) => {
+        this.setState({trips: trips});
+      });
   }
-  handleTripRequest = (requestId) => {
+  handleRequestResponse = (requestId) => {
     // PUT to /requests/requestId
     this.updateState();
   }
@@ -39,9 +39,9 @@ class TripsList extends Component {
       return(
         <ListItem key={trip.id}>
           <Trip
-            {...trip.attributes}
+            {...trip}
             id={trip.id}
-            onResponse={this.handleTripRequest}
+            onResponse={this.handleRequestResponse}
           />
         </ListItem>
       );
