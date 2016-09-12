@@ -20,7 +20,7 @@ var helpers = {
         return response.data
       })
       .catch((error) => {
-        console.log('FuX Err')
+        console.log(error)
       })
     },
   getMyTrips: function(id) {
@@ -29,13 +29,16 @@ var helpers = {
         return response.data;
       })
       .catch((error) => {
-        console.log('FuX Err')
+        console.log(error)
       })
   },
   joinTripRequest: function(trip_id, user_id) {
     return createTripRequest(trip_id, user_id)
       .then(function(response) {
-        return response.data.data;
+        return;
+      })
+      .catch((error) => {
+        console.log(error)
       })
     }
 }

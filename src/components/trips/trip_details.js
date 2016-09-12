@@ -21,7 +21,7 @@ class TripDetails extends Component {
     this.updateState(requestId);
   }
   updateState = (requestId) => {
-    this.onRequestResponse(requestId);
+    this.props.onRequestResponse(requestId);
   }
   handleChange = (value) => {
     this.setState({

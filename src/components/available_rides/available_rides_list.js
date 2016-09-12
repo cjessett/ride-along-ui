@@ -17,7 +17,7 @@ class AvailableRidesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: 1,
+      user_id: 3,
       trips: [],
     }
   }
@@ -25,14 +25,16 @@ class AvailableRidesList extends Component {
     this.updateState();
   }
   updateState = () => {
-    helpers.getAvailableRides(this.state.user_id).then((trips) => {
-      this.setState({trips: trips})
-    })
+    helpers.getAvailableRides(this.state.user_id)
+      .then((trips) => {
+        this.setState({trips: trips})
+      })
   }
   handleJoinRequest = (trip_id) => {
-    helpers.joinTripRequest(trip_id, this.state.user_id).then((response) => {
-      this.updateState();
-    })
+    helpers.joinTripRequest(trip_id, this.state.user_id)
+      .then((response) => {
+        this.updateState();
+      })
   }
   render() {
     const trips = this.state.trips.map((trip) => {
