@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs, Tab, List, ListItem} from 'material-ui';
+import TripRider from './trip_rider';
 
 const styles = {
   headline: {
