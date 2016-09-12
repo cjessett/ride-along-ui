@@ -39,7 +39,7 @@ class TripDetails extends Component {
     const requests = this.props.requests.map((request) => {
       return(
         <ListItem key={request.id}>
-          {request.user}
+          {request.name}
         </ListItem>
       )
     });

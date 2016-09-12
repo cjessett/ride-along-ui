@@ -17,12 +17,10 @@ class Trip extends Component {
           avatar=""
           actAsExpander={true}
           showExpandableButton={true}
-          children={
-            <TripCardPreview
-              departure={this.props.departure}
-              arrival={this.props.arrival}
-            />
-          }
+          children={<TripCardPreview
+            departure={this.props.departure}
+            arrival={this.props.arrival}
+          />}
         />
         <CardText expandable={true}>
           <TripDetails

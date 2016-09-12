@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import '../App.css';
 import AvailableRidesList from './available_rides/available_rides_list'
 import TripsList from './trips/trips_list'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import '../App.css';
 
 class Dashboard extends Component {
   constructor(props) {
