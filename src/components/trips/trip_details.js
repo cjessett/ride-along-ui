@@ -28,7 +28,11 @@ class TripDetails extends Component {
     const riders = this.props.riders.map((rider) => {
       return(
         <ListItem key={rider.id}>
-          <TripRider {...rider} />
+          <TripRider
+            {...rider}
+            onRemove={this.props.onRiderRemove}
+            tripId={this.props.tripId}
+          />
         </ListItem>
       );
     });

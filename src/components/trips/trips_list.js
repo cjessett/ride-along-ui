@@ -36,6 +36,12 @@ class TripsList extends Component {
         this.updateState();
       })
   }
+  handleRiderRemove = (trip_id, user_id) => {
+    helpers.removeRider(trip_id, user_id)
+      .then((response) => {
+        this.updateState();
+      })
+  }
   render() {
     const trips = this.state.trips.map((trip) => {
       return(
@@ -44,6 +50,7 @@ class TripsList extends Component {
             {...trip}
             id={trip.id}
             onResponse={this.handleRequestResponse}
+            onRiderRemove={this.handleRiderRemove}
           />
         </ListItem>
       );
