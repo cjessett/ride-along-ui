@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { RaisedButton } from 'material-ui';
+
 const styles = {
-  prop: {
+  info: {
     margin: 50
   }
 }
@@ -10,9 +11,9 @@ class TripRider extends Component {
   render() {
     return(
       <span>
-        <span style={styles.prop}>{this.props.name}</span>
-        <span style={styles.prop}>{this.props.email}</span>
-        <span style={styles.prop}><RaisedButton label="Kick" secondary={true} /></span>
+        <span style={styles.info}>{this.props.name}</span>
+        <span style={styles.info}>{this.props.email}</span>
+        <span style={styles.info}><RaisedButton label="Kick" secondary={true} /></span>
       </span>
     )
   }

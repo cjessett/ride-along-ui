@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs, Tab, List, ListItem} from 'material-ui';
 import TripRider from './trip_rider';
+import TripRequest from './trip_request'
 
 const styles = {
   headline: {
@@ -18,12 +19,6 @@ class TripDetails extends Component {
       value: 'a'
     };
   }
-  componentDidMount = (requestId) => {
-    this.updateState(requestId);
-  }
-  updateState = (requestId) => {
-    this.props.onRequestResponse(requestId);
-  }
   handleChange = (value) => {
     this.setState({
       value: value,
@@ -33,14 +28,14 @@ class TripDetails extends Component {
     const riders = this.props.riders.map((rider) => {
       return(
         <ListItem key={rider.id}>
-          {rider.name}
+          <TripRider {...rider} />
         </ListItem>
       );
     });
     const requests = this.props.requests.map((request) => {
       return(
         <ListItem key={request.id}>
-          {request.name}
+          <TripRequest {...request} onResponse={this.props.onRequestResponse} />
         </ListItem>
       )
     });
