@@ -13,34 +13,62 @@ function createTripRequest(id, user) {
   return axios.post(url, {user_id: user})
 }
 
+function tripRequestResponse(id, response) {
+  var url = 'http://localhost:3000/requests/' + id
+  return axios.put(url, {response: response})
+}
+
+function removeRider(trip_id, user_id) {
+  var url = 'http://localhost:3000/trips/' + trip_id
+  return axios.patch(url, {user_id: user_id})
+}
+
 var helpers = {
   getAvailableRides: function(id) {
     return fetchAvailableRides(id)
-      .then(function(response) {
+      .then((response) => {
         return response.data
       })
       .catch((error) => {
         console.log(error)
-      })
-    },
+      });
+  },
   getMyTrips: function(id) {
     return fetchMyTrips(id)
-      .then(function(response) {
+      .then((response) => {
         return response.data;
       })
       .catch((error) => {
-        console.log(error)
-      })
+        console.log(error);
+      });
   },
   joinTripRequest: function(trip_id, user_id) {
     return createTripRequest(trip_id, user_id)
-      .then(function(response) {
+      .then((response) => {
         return;
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
+      });
+  },
+  respondToTripRequest: function(request_id, response) {
+    return tripRequestResponse(request_id, response)
+      .then((response) => {
+        return;
       })
-    }
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  removeRider: function(trip_id, user_id) {
+    return removeRider(trip_id, user_id)
+      .then((response) => {
+        return;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 }
 
 module.exports = helpers;

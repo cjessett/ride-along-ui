@@ -17,8 +17,8 @@ class AvailableRidesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: 3,
-      trips: [],
+      user_id: 1,
+      trips: []
     }
   }
   componentDidMount = () => {

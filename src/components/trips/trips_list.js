@@ -30,9 +30,17 @@ class TripsList extends Component {
         this.setState({trips: trips});
       });
   }
-  handleRequestResponse = (requestId) => {
-    // PUT to /requests/requestId
-    this.updateState();
+  handleRequestResponse = (request_id, response) => {
+    helpers.respondToTripRequest(request_id, response)
+      .then((response) => {
+        this.updateState();
+      })
+  }
+  handleRiderRemove = (trip_id, user_id) => {
+    helpers.removeRider(trip_id, user_id)
+      .then((response) => {
+        this.updateState();
+      })
   }
   render() {
     const trips = this.state.trips.map((trip) => {
@@ -42,6 +50,7 @@ class TripsList extends Component {
             {...trip}
             id={trip.id}
             onResponse={this.handleRequestResponse}
+            onRiderRemove={this.handleRiderRemove}
           />
         </ListItem>
       );
