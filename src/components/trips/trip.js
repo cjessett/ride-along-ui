@@ -5,25 +5,33 @@ import TripDetails from './trip_details'
 
 class Trip extends Component {
   static propTypes = {
-    driver: React.PropTypes.string.isRequired,
     departure: React.PropTypes.string.isRequired,
     arrival: React.PropTypes.string.isRequired,
-    rating: React.PropTypes.string,
-    count: React.PropTypes.number
+    riders: React.PropTypes.array,
+    requests: React.PropTypes.array
   }
   render() {
     return (
       <Card>
         <CardHeader
-          title={this.props.driver}
-          subtitle={this.props.rating + "/5"}
           avatar=""
           actAsExpander={true}
           showExpandableButton={true}
-          children={<TripCardPreview {...this.props} />}
+          children={
+            <TripCardPreview
+              departure={this.props.departure}
+              arrival={this.props.arrival}
+            />
+          }
         />
         <CardText expandable={true}>
-          <TripDetails />
+          <TripDetails
+            tripId={this.props.id}
+            riders={this.props.riders}
+            requests={this.props.requests}
+            onRequestResponse={this.props.onResponse}
+            onRiderRemove={this.props.onRiderRemove}
+          />
         </CardText>
       </Card>
     );
