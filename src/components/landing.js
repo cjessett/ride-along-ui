@@ -3,6 +3,7 @@ import { Jumbotron, Row, Col } from 'react-bootstrap';
 import {MuiThemeProvider} from 'material-ui'
 import '../landing.css';
 
+
 const Landing = () => (
   <MuiThemeProvider>
     <Row className="show-grid">

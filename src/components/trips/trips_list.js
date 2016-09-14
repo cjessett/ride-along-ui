@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Trip from './trip';
 import { List, ListItem } from 'material-ui/List';
 import helpers from '../../utils/helpers';
+import CreateTrip from './create_trip'
 
 const styles = {
   headline: {
@@ -58,6 +59,7 @@ class TripsList extends Component {
     return (
       <div>
         <h2 style={styles.headline}>Trips I Drive</h2>
+        <CreateTrip />
         <List children={trips} />
       </div>
     )
