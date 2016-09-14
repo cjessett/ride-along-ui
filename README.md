@@ -2,8 +2,8 @@
 
 ## Team Members
 
-- CJ Jessett - cjessett
-- Tom Ho - TomHoDev
+- CJ Jessett - [cjessett](https://github.com/cjessett)
+- Tom Ho - [TomHoDev](https://github.com/TomHoDev)
 - Kimberly Patton - kimberlypatton
 
 ## Project Description
