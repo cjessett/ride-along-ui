@@ -51,6 +51,7 @@ class TripDetails extends Component {
         <Tab label="Riders" value="a" >
           <div>
             <h2 style={styles.headline}>Riders</h2>
+
             <List children={riders} />
           </div>
         </Tab>
