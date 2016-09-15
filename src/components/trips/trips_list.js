@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Trip from './trip';
 import { List, ListItem } from 'material-ui/List';
 import helpers from '../../utils/helpers';
-import CreateTrip from './create_trip'
+import CreateTrip from './create_trip';
+
 
 const styles = {
   headline: {
@@ -35,13 +36,19 @@ class TripsList extends Component {
     helpers.respondToTripRequest(request_id, response)
       .then((response) => {
         this.updateState();
-      })
+      });
   }
   handleRiderRemove = (trip_id, user_id) => {
     helpers.removeRider(trip_id, user_id)
       .then((response) => {
         this.updateState();
-      })
+      });
+  }
+  handleTripForm = (form_data) => {
+    helpers.createTrip(form_data)
+      .then((response) => {
+        this.updateState();
+      });
   }
   render() {
     const trips = this.state.trips.map((trip) => {
@@ -59,7 +66,7 @@ class TripsList extends Component {
     return (
       <div>
         <h2 style={styles.headline}>Trips I Drive</h2>
-        <CreateTrip />
+        <CreateTrip onFormSubmit={this.handleTripForm} />
         <List children={trips} />
       </div>
     )

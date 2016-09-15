@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import TripForm from './new_trip_form'
+import TripForm from './new_trip_form';
 
 export default class FormModal extends React.Component {
   state = {
@@ -20,7 +20,7 @@ export default class FormModal extends React.Component {
   render() {
     const actions = [
       <FlatButton
-        label="Ok"
+        label="Cancel"
         primary={true}
         keyboardFocused={true}
         onTouchTap={this.handleClose}
@@ -40,8 +40,9 @@ export default class FormModal extends React.Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
+          autoScrollBodyContent={true}
         >
-          <TripForm />
+          <TripForm onFormSubmit={this.props.onFormSubmit} onSubmit={this.handleClose} />
         </Dialog>
       </div>
     );

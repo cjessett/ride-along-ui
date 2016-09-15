@@ -2,11 +2,9 @@ import React from 'react';
 import Formsy from 'formsy-react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import MenuItem from 'material-ui/MenuItem';
 import { FormsyCheckbox, FormsyDate, FormsyRadio, FormsyRadioGroup,
-    FormsySelect, FormsyText, FormsyTime, FormsyToggle } from 'formsy-material-ui/lib';
+  FormsyText, FormsyTime, FormsyToggle } from 'formsy-material-ui/lib';
 
 const Main = React.createClass({
   getInitialState() {
@@ -17,8 +15,7 @@ const Main = React.createClass({
 
   errorMessages: {
     wordsError: "Please only use letters",
-    emailError: "Please provide a valid email",
-    urlError: "Please provide a valid URL",
+    emailError: "Please provide a valid email"
   },
 
   styles: {
@@ -57,16 +54,17 @@ const Main = React.createClass({
 
   render() {
     let {paperStyle, switchStyle, submitStyle } = this.styles;
-    let { wordsError, emailError, urlError } = this.errorMessages;
+    let { wordsError, emailError } = this.errorMessages;
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
-        <Paper style={paperStyle}>
+
           <Formsy.Form
             onValid={this.enableButton}
             onInvalid={this.disableButton}
             onValidSubmit={this.submitForm}
             onInvalidSubmit={this.notifyFormError}
+            style={paperStyle}
           >
             <FormsyText
               name="name"
@@ -128,7 +126,7 @@ const Main = React.createClass({
               disabled={!this.state.canSubmit}
             />
           </Formsy.Form>
-        </Paper>
+
       </MuiThemeProvider>
     );
   },
