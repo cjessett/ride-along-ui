@@ -23,6 +23,12 @@ function removeRider(trip_id, user_id) {
   return axios.patch(url, {user_id: user_id})
 }
 
+function postTrips(data) {
+  debugger
+  var url = 'http://localhost:3000/trips'
+  return axios.post(url, {departure_time: data.departure, arrival_time: data.arrival})
+}
+
 var helpers = {
   getAvailableRides: function(id) {
     return fetchAvailableRides(id)
@@ -68,6 +74,15 @@ var helpers = {
       .catch((error) => {
         console.log(error);
       });
+  },
+  createTrip: function(data) {
+    return postTrips(data)
+      .then((response) => {
+        return;
+      })
+      .catch((error) => {
+        console.error(error);
+      })
   }
 }
 

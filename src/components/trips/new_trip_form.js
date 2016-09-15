@@ -1,12 +1,7 @@
 import React from 'react';
 import Formsy from 'formsy-react';
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import MenuItem from 'material-ui/MenuItem';
-import { FormsyCheckbox, FormsyDate, FormsyRadio, FormsyRadioGroup,
-    FormsySelect, FormsyText, FormsyTime, FormsyToggle } from 'formsy-material-ui/lib';
+import { FormsyCheckbox, FormsyText, FormsyTime } from 'formsy-material-ui/lib';
 
 const Main = React.createClass({
   getInitialState() {
@@ -16,16 +11,15 @@ const Main = React.createClass({
   },
 
   errorMessages: {
-    wordsError: "Please only use letters",
-    emailError: "Please provide a valid email",
-    urlError: "Please provide a valid URL",
+    wordsError: "Please only use letters"
   },
 
   styles: {
     paperStyle: {
       width: 400,
       margin: 'auto',
-      padding: 10
+      padding: 20,
+      marginTop: 20
     },
     switchStyle: {
       marginBottom: 10,
@@ -48,7 +42,8 @@ const Main = React.createClass({
   },
 
   submitForm(data) {
-    alert(JSON.stringify(data, null, 4));
+    this.props.onFormSubmit(data);
+    this.props.onSubmit();
   },
 
   notifyFormError(data) {
@@ -56,17 +51,17 @@ const Main = React.createClass({
   },
 
   render() {
-    let {paperStyle, switchStyle, submitStyle } = this.styles;
-    let { wordsError, emailError, urlError } = this.errorMessages;
+    let {paperStyle, submitStyle } = this.styles;
+    let { wordsError } = this.errorMessages;
 
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
-        <Paper style={paperStyle}>
+
           <Formsy.Form
             onValid={this.enableButton}
             onInvalid={this.disableButton}
             onValidSubmit={this.submitForm}
             onInvalidSubmit={this.notifyFormError}
+            style={paperStyle}
           >
             <FormsyText
               name="name"
@@ -112,8 +107,7 @@ const Main = React.createClass({
               disabled={!this.state.canSubmit}
             />
           </Formsy.Form>
-        </Paper>
-      </MuiThemeProvider>
+
     );
   },
 });

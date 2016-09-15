@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import TripCardPreview from './card_preview';
-import TripDetails from './trip_details'
+import TripDetails from './trip_details';
+import helpers from '../../utils/time_helpers'
 
 class Trip extends Component {
   static propTypes = {
@@ -9,6 +10,9 @@ class Trip extends Component {
     arrival: React.PropTypes.string.isRequired,
     riders: React.PropTypes.array,
     requests: React.PropTypes.array
+  }
+  handleTime = (time) => {
+    return helpers.formatTime(time);
   }
   render() {
     return (
@@ -19,8 +23,8 @@ class Trip extends Component {
           showExpandableButton={true}
           children={
             <TripCardPreview
-              departure={this.props.departure}
-              arrival={this.props.arrival}
+              departure={this.handleTime(this.props.departure)}
+              arrival={this.handleTime(this.props.arrival)}
             />
           }
         />
