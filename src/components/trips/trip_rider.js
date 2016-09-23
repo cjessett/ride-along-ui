@@ -18,7 +18,7 @@ class TripRider extends Component {
         <span style={styles.info}>{this.props.email}</span>
         <span style={styles.info}>
           <RaisedButton
-            label="Kick"
+            label="Remove"
             secondary={true}
             onClick={this.handleClick}
           />
