@@ -1,5 +1,9 @@
 # Ride-Along React UI
 
+Create New Trips
+![https://d17oy1vhnax1f7.cloudfront.net/items/2X1l462N3V2X0N3Y2n3Q/create.mov.gif]
+(https://d17oy1vhnax1f7.cloudfront.net/items/2X1l462N3V2X0N3Y2n3Q/create.mov.gif)
+
 Respond to ride requests or remove riders
 
 ![https://d17oy1vhnax1f7.cloudfront.net/items/0w051N2g1w412q2f1x3f/deets.mov.gif]
