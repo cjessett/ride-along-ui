@@ -1,5 +1,7 @@
 # Ride-Along React UI
 
+![https://cl.ly/2q070w183S2b](https://cl.ly/2q070w183S2b}
+
 ## Team Members
 
 - CJ Jessett - [cjessett](https://github.com/cjessett)
