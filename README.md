@@ -1,5 +1,6 @@
 # Ride-Along React UI
 
+Respond to ride requests or remove riders
 ![https://d17oy1vhnax1f7.cloudfront.net/items/0w051N2g1w412q2f1x3f/deets.mov.gif]
 (https://d17oy1vhnax1f7.cloudfront.net/items/0w051N2g1w412q2f1x3f/deets.mov.gif)
 
