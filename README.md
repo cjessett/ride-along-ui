@@ -1,6 +1,7 @@
 # Ride-Along React UI
 
-![https://cl.ly/3p1g1k3N3u2M](https://cl.ly/3p1g1k3N3u2M)
+![https://d17oy1vhnax1f7.cloudfront.net/items/0w051N2g1w412q2f1x3f/deets.mov.gif]
+(https://d17oy1vhnax1f7.cloudfront.net/items/0w051N2g1w412q2f1x3f/deets.mov.gif)
 
 ## Team Members
 
